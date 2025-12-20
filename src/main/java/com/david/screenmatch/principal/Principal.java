@@ -1,11 +1,14 @@
 package com.david.screenmatch.principal;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import com.david.screenmatch.model.DatosSerie;
 import com.david.screenmatch.model.DatosTemporada;
+import com.david.screenmatch.model.Serie;
 import com.david.screenmatch.service.ConsumoAPI;
 import com.david.screenmatch.service.ConvierteDatos;
 
@@ -79,6 +82,13 @@ public class Principal {
     }
 
     private void mostrarSeriesBuscadas() {
-        datosSeries.forEach(System.out::println);
+        List<Serie> series = new ArrayList<>();
+        series = datosSeries.stream()
+            .map(s -> new Serie(s))
+            .collect(Collectors.toList());
+
+        series.stream()
+            .sorted(Comparator.comparing(Serie::getGenero))
+            .forEach(System.out::println);
     }
 }
