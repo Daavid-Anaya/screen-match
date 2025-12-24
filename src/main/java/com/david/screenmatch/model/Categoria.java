@@ -8,7 +8,6 @@ public enum Categoria {
     DRAMA("Drama"),
     CRIMEN("Crime");
 
-    @SuppressWarnings("unused")
     private String categoriaOmdb;
 
     private Categoria(String categoriaOmdb) {

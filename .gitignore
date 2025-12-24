@@ -48,3 +48,6 @@ build/
 ### Archivos temporales ###
 *.tmp
 *.swp
+
+### Environment files ###
+.env
