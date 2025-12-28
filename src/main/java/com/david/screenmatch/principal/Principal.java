@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import com.david.screenmatch.model.Categoria;
 import com.david.screenmatch.model.DatosSerie;
 import com.david.screenmatch.model.DatosTemporada;
 import com.david.screenmatch.model.Episodio;
@@ -38,6 +39,7 @@ public class Principal {
                     3 - Mostrar series buscadas
                     4 - Buscar serie por titulo      
                     5 - Mostrar Top 5 mejores series
+                    6 - Buscar series por categoría
                     0 - Salir
                     """;
 
@@ -61,6 +63,9 @@ public class Principal {
                     break;
                 case 5:
                     buscarTop5Series();
+                    break;
+                case 6:
+                    buscarSeriesPorCategoria();
                     break;
                 case 0:
                     System.out.println("Cerrando la aplicación...");
@@ -146,5 +151,15 @@ public class Principal {
         top5Series.forEach(
             s -> System.out.println("Serie: " + s.getTitulo() + " - Evaluación: " + s.getEvaluacion())
         );
+    }
+
+    private void buscarSeriesPorCategoria() {
+        System.out.print("Escribe el género/categoría de la serie que desea buscar: ");
+        var genero = scanner.nextLine();
+        var categoria = Categoria.fromStringEsp(genero);
+        List<Serie> seriesPorCategoria = serieRepository.findByGenero(categoria);
+
+        System.out.println("Series encontradas en la categoría " + genero + ": ");
+        seriesPorCategoria.forEach(System.out::println);
     }
 }
