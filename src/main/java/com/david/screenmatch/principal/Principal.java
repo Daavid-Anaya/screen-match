@@ -9,16 +9,22 @@ import java.util.stream.Collectors;
 import com.david.screenmatch.model.DatosSerie;
 import com.david.screenmatch.model.DatosTemporada;
 import com.david.screenmatch.model.Serie;
+import com.david.screenmatch.repository.SerieRepository;
 import com.david.screenmatch.service.ConsumoAPI;
 import com.david.screenmatch.service.ConvierteDatos;
 
 public class Principal {
+    private SerieRepository serieRepository;
     private Scanner scanner = new Scanner(System.in);
     private ConsumoAPI consumoApi = new ConsumoAPI();
     private final String URL_BASE = "http://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=92dd4ce1";
     private ConvierteDatos conversor = new ConvierteDatos();
     private List<DatosSerie> datosSeries = new ArrayList<>();
+
+    public Principal(SerieRepository serieRepository) {
+        this.serieRepository = serieRepository;
+    }
 
     public void mostrarMenu() {
         var opcion = -1;
@@ -77,7 +83,9 @@ public class Principal {
 
     private void buscarSerieWeb() {
         DatosSerie datos = getDatosSerie();
-        datosSeries.add(datos);
+        Serie serie = new Serie(datos);
+        serieRepository.save(serie);
+        //datosSeries.add(datos);
         System.out.println(datos);
     }
 
