@@ -7,13 +7,18 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.david.screenmatch.model.Categoria;
+import com.david.screenmatch.model.Episodio;
 import com.david.screenmatch.model.Serie;
 
 public interface SerieRepository extends JpaRepository<Serie, Long>{
     Optional<Serie> findByTituloContainsIgnoreCase(String nombreSerie);
     List<Serie> findTop5ByOrderByEvaluacionDesc();
     List<Serie> findByGenero(Categoria genero);
+
     //List<Serie> findByTotalTemporadasLessThanEqualAndEvaluacionGreaterThanEqual(int totalTemporadas, Double evaluacion);
     @Query("SELECT s FROM Serie s WHERE s.totalTemporadas <= :totalTemporadas AND s.evaluacion >= :evaluacion")
     List<Serie> seriesPorTemporadasYEvaluacion(int totalTemporadas, Double evaluacion);
+
+    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE e.titulo ILIKE %:nombreEpisodio%")
+    List<Episodio> episodiosPorNombre(String nombreEpisodio);
 }
