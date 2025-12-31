@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.david.screenmatch.dto.EpisodioDTO;
 import com.david.screenmatch.dto.SerieDTO;
+import com.david.screenmatch.model.Categoria;
 import com.david.screenmatch.model.Serie;
 import com.david.screenmatch.repository.SerieRepository;
 
@@ -83,5 +84,11 @@ public class SerieService {
                 e.getTitulo(),
                 e.getNumeroEpisodio()
             )).collect(Collectors.toList());
+    }
+
+    public List<SerieDTO> obtenerSeriesPorCategoria(String nombreGenero) {
+        Categoria categoria = Categoria.fromStringEsp(nombreGenero);
+
+        return convierteDatos(repository.findByGenero(categoria));
     }
 }

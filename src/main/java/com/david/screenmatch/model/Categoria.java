@@ -1,7 +1,7 @@
 package com.david.screenmatch.model;
 
 public enum Categoria {
-    ACCION("Action", "Accion"),
+    ACCION("Action", "Acción"),
     ROMANCE("Romance", "Romance"),
     COMEDIA("Comedy", "Comedia"),
     TERROR("Horror", "Terror"),
