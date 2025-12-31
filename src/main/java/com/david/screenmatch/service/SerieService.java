@@ -1,6 +1,7 @@
 package com.david.screenmatch.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class SerieService {
 
     public List<SerieDTO> convierteDatos(List<Serie> serie) {
         return serie.stream().map(s -> new SerieDTO(
+            s.getId(),
             s.getTitulo(),
             s.getTotalTemporadas(),
             s.getEvaluacion(),
@@ -37,5 +39,24 @@ public class SerieService {
             s.getActores(),
             s.getSinopsis()
         )).collect(Collectors.toList());
+    }
+
+    public SerieDTO obtenerPorId(Long id) {
+        Optional<Serie> serie = repository.findById(id);
+
+        if (serie.isPresent()) {
+            Serie s = serie.get();
+            return new SerieDTO(
+                s.getId(),
+                s.getTitulo(),
+                s.getTotalTemporadas(),
+                s.getEvaluacion(),
+                s.getPoster(),
+                s.getGenero(),
+                s.getActores(),
+                s.getSinopsis()
+            );
+        }
+        return null;
     }
 }
