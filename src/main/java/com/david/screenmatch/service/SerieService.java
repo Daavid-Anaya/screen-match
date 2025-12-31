@@ -91,4 +91,19 @@ public class SerieService {
 
         return convierteDatos(repository.findByGenero(categoria));
     }
+
+    public List<EpisodioDTO> obtenerTop5Episodios(Long id) {
+        Optional<Serie> serie = repository.findById(id);
+
+        if (serie.isPresent()) {
+            Serie s = serie.get();
+            return repository.top5Episodios(s).stream()
+                .map(e -> new EpisodioDTO(
+                    e.getTemporada(),
+                    e.getTitulo(),
+                    e.getNumeroEpisodio()
+                )).collect(Collectors.toList());
+        }
+        return null;
+    }
 }
