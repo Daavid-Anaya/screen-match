@@ -1,24 +1,59 @@
-# Screen Match
+<h1 align="center">ScreenMatch</h1>
+
+<p align="center">
+   <img src="https://img.shields.io/badge/STATUS-EN%20DESARROLLO-blue">
+   <img src="https://img.shields.io/badge/Java-21%2B-blue">
+</p>
 
 Proyecto desarrollado durante la Formación Java y Spring Framework G9 - ONE.
 
-## Descripción
-Screen Match es una aplicación diseñada para facilitar la administración y consulta de información relacionada con películas y series. Este proyecto busca resolver el problema del manejo desorganizado de datos sobre contenido audiovisual, permitiendo gestionar y acceder fácilmente a los detalles de cada material.
+## 📝 Descripción
+ScreenMatch es una aplicación diseñada para facilitar la administración y consulta de información relacionada con películas y series. Este proyecto busca resolver el problema del manejo desorganizado de datos sobre contenido audiovisual, permitiendo gestionar y acceder fácilmente a los detalles de cada material.
 
-## Stack Tecnológico
-- **Lenguaje:** Java (JDK 17)
-- **Framework:** Spring Boot 3.x
-- **Herramienta de Build:** Maven
-- **Base de Datos:** Por definir durante la configuración (ej. PostgreSQL, MySQL, etc.)
-- **Otras Librerías:** Lombok, Spring Security, JWT
+---
 
-## Prerrequisitos
+## ✨ Características
+- 
+
+---
+
+## 🖥 Preview
+<p align="center">
+  <img src="./src/main/resources/img/screenshot.png" alt="Screenshot" with="200">
+</p>
+
+---
+
+## 🛠️ Stack Tecnológico
+<div align="center">
+  
+  | Tecnología  |                 Descrpción               |                              Icon                               |
+  | :---------: | :--------------------------------------: | :-------------------------------------------------------------: |
+  |    Java     |         Lenguaje de programación         |   <img src="https://skillicons.dev/icons?i=java" width="48">    |
+  |     Git     |      Sistema de control de versiones     |    <img src="https://skillicons.dev/icons?i=git" width="48">    |
+  |    Maven    |    gestión y construcción de proyecto    |   <img src="https://skillicons.dev/icons?i=maven" width="48">   |
+  | Spring Boot |                 Framework                |   <img src="https://skillicons.dev/icons?i=spring" width="48">  |
+  |  PostgreSQL | sistema almacenar y gestionar datos (DB) | <img src="https://skillicons.dev/icons?i=postgres" width="48">  |
+   
+</div>
+
+---
+
+## 📂 Estructura del Proyecto
+
+### Descripcion de Paquetes
+
+---
+
+## ✅ Prerrequisitos
 Antes de empezar, asegúrate de tener instalados:
-- Java JDK 17
+- Java JDK 21+
 - Maven (se recomienda utilizar el wrapper incluido: `./mvnw` para Linux/Mac o `mvnw.cmd` en Windows)
-- Un gestor de base de datos (PostgreSQL, MySQL, o similar)
+- Un gestor de base de datos (PostgreSQL)
 
-## Instalación y Configuración
+---
+
+##  Instalación y Configuración
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/Daavid-Anaya/screen-match.git
