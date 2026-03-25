@@ -130,13 +130,13 @@ Si no se definen, se usarán los valores por defecto indicados.
 ##  Ejecución del Proyecto
 
 ### 1. Clonar el repositorio
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/Daavid-Anaya/screen-match.git
-   cd screen-match
-   ```
+Clonar el repositorio:
+```bash
+git clone https://github.com/Daavid-Anaya/screen-match.git
+cd screen-match
+```
 
-### 2. Crear la base de datos en MySQL
+### 2. Crear la base de datos en PostgreSQL
 ```sql
 CREATE DATABASE nombre_base_de_datos;
 ```
@@ -168,7 +168,10 @@ $env:DB_USERNAME="tu_usuario"
 $env:DB_PASSWORD="tu_contraseña"
 ```
 
-### 4. Ejecutar el proyecto
+### 4. Descarga el Frontend de ScreenMatch
+Dirijase al repositorio de [ScreenMatch Frontend](https://github.com/Daavid-Anaya/screenmatch-frontend) y sigue los pasos de instalación.
+
+### 5. Ejecutar el proyecto
 
 **Con Maven Wrapper (recomendado):**
 ```bash
@@ -184,7 +187,7 @@ mvnw.cmd spring-boot:run
 mvn spring-boot:run
 ```
 
-### 5. Verificar que la aplicación está corriendo
+### 6. Verificar que la aplicación está corriendo
 
 Una vez iniciada, la API estará disponible en:
 ```
